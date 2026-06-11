@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>كص ادهام — شاورما بغداد</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#C8102E;--red2:#a50d25;--red3:#8a0a1e;
+  --red-light:#fff0f2;--red-mid:#ffe0e5;
+  --gold:#D4A017;--gold-light:#fffbee;
+  --teal:#007A8A;
+  --gray:#f8f6f3;--gray2:#edeae5;--gray3:#999;--gray4:#555;
+  --text:#111;--text2:#444;
+  --white:#fff;
+  --r:16px;--r2:28px;
+  --shadow-red:0 8px 32px rgba(200,16,46,0.18);
+  --shadow-sm:0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md:0 6px 24px rgba(0,0,0,0.1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;width:100%;background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  z-index:100;border-bottom:3px solid var(--red);
+  padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:68px;
+  box-shadow:var(--shadow-sm);
+}
+.nav-logo{
+  font-family:'Tajawal',sans-serif;font-size:1.6rem;font-weight:900;
+  color:var(--red);display:flex;align-items:center;gap:6px;text-decoration:none;
+}
+.nav-logo em{font-style:normal;font-size:1rem;color:var(--gray3);font-weight:600}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{
+  color:var(--text2);text-decoration:none;font-size:0.88rem;font-weight:700;
+  padding:8px 14px;border-radius:10px;transition:all 0.18s;
+}
+.nav-links a:hover{color:var(--red);background:var(--red-light)}
+.nav-cart-btn{
+  background:var(--red);color:#fff;font-weight:900;font-size:0.88rem;
+  padding:10px 20px;border-radius:50px;border:none;cursor:pointer;
+  font-family:'Cairo',sans-serif;transition:all 0.2s;display:flex;align-items:center;gap:8px;
+}
+.nav-cart-btn:hover{background:var(--red2);transform:scale(1.04)}
+.nav-cart-btn:active{transform:scale(0.97)}
+.nav-count{
+  background:#fff;color:var(--red);border-radius:50%;
+  width:20px;height:20px;font-size:0.72rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:92vh;background:#fff;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;
+}
+.hero-blob{
+  position:absolute;border-radius:50%;pointer-events:none;
+}
+.hero-blob.b1{
+  width:700px;height:700px;top:-180px;right:-180px;
+  background:radial-gradient(circle,#ffe0e5 0%,transparent 70%);
+  animation:blob1 7s ease-in-out infinite;
+}
+.hero-blob.b2{
+  width:500px;height:500px;bottom:-120px;left:-120px;
+  background:radial-gradient(circle,#fff0f2 0%,transparent 70%);
+  animation:blob1 9s ease-in-out infinite reverse;
+}
+@keyframes blob1{0%,100%{transform:scale(1) translate(0,0)}50%{transform:scale(1.08) translate(20px,-20px)}}
+
+.hero-badge{
+  background:var(--red);color:#fff;font-weight:900;font-size:0.78rem;
+  padding:7px 22px;border-radius:50px;letter-spacing:2px;margin-bottom:28px;
+  display:inline-flex;align-items:center;gap:8px;position:relative;z-index:1;
+  animation:fadeUp 0.5s ease both;
+}
+.hero-h1{
+  font-family:'Tajawal',sans-serif;
+  font-size:clamp(4.5rem,16vw,10rem);
+  font-weight:900;color:var(--text);
+  line-height:0.88;position:relative;z-index:1;
+  animation:fadeUp 0.5s 0.08s ease both;
+  letter-spacing:-2px;
+}
+.hero-h1 .r{color:var(--red)}
+.hero-rule{
+  width:56px;height:4px;background:var(--red);border-radius:2px;
+  margin:24px auto;position:relative;z-index:1;
+  animation:fadeUp 0.5s 0.16s ease both;
+}
+.hero-sub{
+  font-size:1.1rem;color:var(--text2);position:relative;z-index:1;
+  font-weight:600;animation:fadeUp 0.5s 0.22s ease both;line-height:1.6;
+}
+.hero-tags{
+  display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+  margin-top:28px;position:relative;z-index:1;
+  animation:fadeUp 0.5s 0.3s ease both;
+}
+.hero-tag{
+  background:var(--gray);color:var(--text2);font-size:0.82rem;font-weight:700;
+  padding:9px 18px;border-radius:50px;border:1.5px solid var(--gray2);
+  transition:all 0.18s;cursor:default;
+}
+.hero-tag:hover{border-color:var(--red);color:var(--red);background:var(--red-light);transform:translateY(-2px)}
+.hero-btns{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  margin-top:36px;position:relative;z-index:1;
+  animation:fadeUp 0.5s 0.38s ease both;
+}
+.btn-red{
+  background:var(--red);color:#fff;font-weight:900;font-size:1rem;
+  padding:15px 36px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;
+  font-family:'Cairo',sans-serif;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-red:hover{background:var(--red2);transform:translateY(-3px);box-shadow:var(--shadow-red)}
+.btn-red:active{transform:translateY(0) scale(0.97)}
+.btn-ghost{
+  background:#fff;color:var(--red);font-weight:900;font-size:1rem;
+  padding:14px 36px;border-radius:50px;text-decoration:none;
+  border:2.5px solid var(--red);transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+  font-family:'Cairo',sans-serif;cursor:pointer;
+}
+.btn-ghost:hover{background:var(--red-light);transform:translateY(-3px)}
+.btn-ghost:active{transform:translateY(0)}
+
+/* ===== MARQUEE ===== */
+.marquee-strip{
+  background:var(--red);color:#fff;padding:15px 0;overflow:hidden;
+  font-weight:900;font-size:0.95rem;letter-spacing:1px;user-select:none;
+}
+.marquee-inner{display:flex;gap:0;white-space:nowrap;animation:scroll-rtl 22s linear infinite}
+.marquee-inner span{padding:0 32px;opacity:0.9}
+.marquee-inner span::after{content:'◆';margin-right:32px;opacity:0.4;font-size:0.6rem;vertical-align:middle}
+@keyframes scroll-rtl{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ===== SECTION COMMON ===== */
+.sec{padding:88px 40px;max-width:1240px;margin:0 auto}
+.sec-eye{
+  display:inline-block;background:var(--red-light);color:var(--red);
+  font-weight:900;font-size:0.75rem;padding:5px 16px;border-radius:50px;
+  letter-spacing:1.5px;margin-bottom:10px;
+}
+.sec-h{font-family:'Tajawal',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;color:var(--text);margin-bottom:5px}
+.sec-h .ac{color:var(--red)}
+.sec-p{color:var(--gray3);font-size:0.9rem;margin-bottom:40px}
+
+/* ===== TABS ===== */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;
+  background:var(--gray);padding:6px;border-radius:16px;width:fit-content}
+.tab{
+  background:transparent;color:var(--text2);font-weight:700;font-size:0.88rem;
+  padding:10px 22px;border-radius:12px;border:none;cursor:pointer;
+  transition:all 0.2s;font-family:'Cairo',sans-serif;
+}
+.tab.on{background:#fff;color:var(--red);box-shadow:var(--shadow-sm)}
+.tab:hover:not(.on){background:rgba(255,255,255,0.6);color:var(--text)}
+
+/* ===== MENU CATEGORY ===== */
+.mcat{display:none}
+.mcat.on{display:block}
+
+/* ===== MENU CARDS ===== */
+.mgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.mcard{
+  background:#fff;border:1.5px solid var(--gray2);border-radius:var(--r2);
+  padding:20px 22px;cursor:pointer;transition:all 0.22s;
+  display:flex;align-items:center;gap:16px;
+  box-shadow:var(--shadow-sm);
+}
+.mcard:hover{
+  border-color:var(--red);transform:translateY(-5px);
+  box-shadow:var(--shadow-red);background:var(--red-light);
+}
+.mcard:active{transform:translateY(-2px) scale(0.98)}
+.mcard-ico{font-size:2.4rem;flex-shrink:0;transition:transform 0.3s;line-height:1}
+.mcard:hover .mcard-ico{transform:scale(1.25) rotate(-8deg)}
+.mcard-body{flex:1;min-width:0}
+.mcard-name{font-weight:900;font-size:1rem;color:var(--text);transition:color 0.2s}
+.mcard:hover .mcard-name{color:var(--red)}
+.mcard-desc{font-size:0.76rem;color:var(--gray3);line-height:1.5;margin-top:3px}
+.mcard-add{
+  background:var(--red);color:#fff;font-weight:900;font-size:0.88rem;
+  padding:8px 16px;border-radius:50px;white-space:nowrap;flex-shrink:0;
+  direction:ltr;transition:all 0.2s;display:flex;align-items:center;gap:6px;
+}
+.mcard:hover .mcard-add{background:var(--red2);transform:scale(1.05)}
+
+/* ===== KILO GRID ===== */
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.kcard{
+  border:2px solid var(--red);border-radius:var(--r);padding:24px 20px;
+  text-align:center;cursor:pointer;transition:all 0.22s;background:#fff;
+  box-shadow:var(--shadow-sm);
+}
+.kcard:hover{background:var(--red);transform:translateY(-5px);box-shadow:var(--shadow-red)}
+.kcard:active{transform:translateY(-2px)}
+.kcard:hover .kn,.kcard:hover .kp,.kcard:hover .ku{color:#fff!important}
+.kn{font-weight:900;font-size:0.88rem;color:var(--text2);margin-bottom:12px;transition:color 0.2s}
+.kp{font-family:'Tajawal',sans-serif;font-weight:900;font-size:2.2rem;color:var(--red);transition:color 0.2s;line-height:1}
+.ku{font-size:0.7rem;color:var(--gray3);margin-top:4px;transition:color 0.2s}
+.kcard-teal{border-color:var(--teal)}
+.kcard-teal .kp{color:var(--teal)}
+.kcard-teal:hover{background:var(--teal)}
+
+/* ===== MEALS ===== */
+.mls{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.mlcard{
+  background:#fff;border:1.5px solid var(--gray2);border-radius:var(--r2);
+  padding:28px;cursor:default;transition:all 0.22s;box-shadow:var(--shadow-sm);
+  position:relative;overflow:hidden;
+}
+.mlcard::before{
+  content:'';position:absolute;top:0;right:0;
+  width:4px;height:100%;background:var(--red);
+  border-radius:0 var(--r2) var(--r2) 0;
+}
+.mlcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:rgba(200,16,46,0.2)}
+.ml-ico{font-size:2.8rem;margin-bottom:14px;display:block}
+.ml-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:1.5rem;color:var(--text);margin-bottom:4px}
+.ml-info{font-size:0.8rem;color:var(--gray3);margin-bottom:18px;line-height:1.5}
+.ml-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{
+  border-radius:50px;padding:8px 16px;font-size:0.82rem;font-weight:900;
+  cursor:pointer;transition:all 0.18s;border:none;font-family:'Cairo',sans-serif;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.pill:hover{transform:scale(1.06);filter:brightness(1.08)}
+.pill:active{transform:scale(0.96)}
+.pill-red{background:var(--red);color:#fff}
+.pill-teal{background:var(--teal);color:#fff}
+.pill-dark{background:var(--text);color:#fff}
+
+/* ===== RIZZO ===== */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.rcard{
+  background:var(--gold-light);border:2px solid var(--gold);border-radius:var(--r2);
+  padding:28px;text-align:center;cursor:pointer;transition:all 0.22s;box-shadow:var(--shadow-sm);
+}
+.rcard:hover{background:var(--gold);transform:translateY(-5px);box-shadow:0 10px 32px rgba(212,160,23,0.28)}
+.rcard:active{transform:translateY(-2px)}
+.rcard:hover .rn,.rcard:hover .rd,.rcard:hover .rp{color:var(--text)!important}
+.rico{font-size:2.8rem;display:block;margin-bottom:14px;transition:transform 0.3s}
+.rcard:hover .rico{transform:scale(1.2) rotate(6deg)}
+.rn{font-weight:900;font-size:1.1rem;color:var(--text)}
+.rd{font-size:0.77rem;color:var(--gray3);margin:6px 0 14px;transition:color 0.2s}
+.rp{font-family:'Tajawal',sans-serif;font-weight:900;font-size:2rem;color:var(--gold);transition:color 0.2s}
+
+/* ===== ADDITIONS ===== */
+.add-bg{background:var(--gray);padding:72px 40px}
+.add-inner{max-width:1240px;margin:0 auto}
+.add-chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.achip{
+  background:#fff;border:1.5px solid var(--gray2);border-radius:50px;
+  padding:11px 22px;font-size:0.85rem;cursor:pointer;transition:all 0.18s;
+  display:inline-flex;align-items:center;gap:9px;box-shadow:var(--shadow-sm);
+  font-family:'Cairo',sans-serif;font-weight:700;color:var(--text2);
+}
+.achip:hover{border-color:var(--red);background:var(--red-light);color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow-red)}
+.achip:active{transform:scale(0.96)}
+.achip .ap{font-weight:900;color:var(--red);font-size:0.9rem}
+.achip:hover .ap{color:var(--red2)}
+
+/* ===== ABOUT ===== */
+.about-bg{background:var(--red);padding:88px 40px;text-align:center;position:relative;overflow:hidden}
+.about-bg::before{
+  content:'ادهام';position:absolute;font-family:'Tajawal',sans-serif;
+  font-size:22rem;font-weight:900;color:rgba(255,255,255,0.03);
+  top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;letter-spacing:-10px;
+}
+.about-in{max-width:720px;margin:0 auto;position:relative;z-index:1}
+.about-badge{
+  background:rgba(255,255,255,0.15);color:#fff;font-size:0.78rem;font-weight:900;
+  padding:6px 18px;border-radius:50px;display:inline-block;margin-bottom:22px;letter-spacing:2px;
+}
+.about-h{font-family:'Tajawal',sans-serif;font-size:2.6rem;font-weight:900;color:#fff;margin-bottom:16px;line-height:1.1}
+.about-p{font-size:1.02rem;color:rgba(255,255,255,0.83);line-height:1.9}
+.about-stats{
+  background:rgba(255,255,255,0.12);border-radius:20px;padding:24px 32px;
+  margin-top:36px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;
+}
+.astat-n{font-family:'Tajawal',sans-serif;font-size:2.2rem;font-weight:900;color:#fff}
+.astat-l{font-size:0.77rem;color:rgba(255,255,255,0.68);margin-top:2px}
+
+/* ===== CONTACT ===== */
+.contact-bg{padding:88px 40px;background:#fff}
+.contact-in{max-width:720px;margin:0 auto;text-align:center}
+.cct-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;text-align:right}
+.cct{
+  background:var(--gray);border:1.5px solid var(--gray2);border-radius:var(--r2);
+  padding:22px;display:flex;align-items:center;gap:14px;
+  text-decoration:none;color:inherit;transition:all 0.2s;box-shadow:var(--shadow-sm);
+}
+.cct:hover{border-color:var(--red);background:var(--red-light);transform:translateY(-4px);box-shadow:var(--shadow-red)}
+.cct:active{transform:translateY(-1px)}
+.cct-ico{
+  width:46px;height:46px;background:var(--red-light);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+  flex-shrink:0;transition:all 0.2s;
+}
+.cct:hover .cct-ico{background:var(--red)}
+.cct-lbl{font-size:0.72rem;color:var(--gray3)}
+.cct-val{font-weight:900;font-size:0.95rem;color:var(--text);direction:ltr}
+
+/* ===== CART PANEL (inline, no fixed) ===== */
+.cart-panel-wrap{
+  display:none;background:rgba(0,0,0,0.35);
+  padding:40px 20px;margin-top:0;
+}
+.cart-panel-wrap.open{display:block}
+.cart-panel{
+  background:#fff;border-radius:var(--r2);padding:36px;
+  max-width:480px;margin:0 auto;position:relative;
+}
+.cart-close{
+  position:absolute;top:16px;left:16px;background:var(--gray);border:none;
+  width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;transition:all 0.18s;color:var(--text);
+}
+.cart-close:hover{background:var(--red-light);color:var(--red)}
+.cart-title{font-family:'Tajawal',sans-serif;font-size:1.9rem;font-weight:900;margin-bottom:4px}
+.cart-sub{color:var(--gray3);font-size:0.85rem;margin-bottom:24px}
+.cart-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 0;border-bottom:1px solid var(--gray2);
+}
+.cart-item:last-of-type{border-bottom:none}
+.cart-item-name{font-weight:700;font-size:0.95rem}
+.cart-item-qty{font-size:0.78rem;color:var(--gray3)}
+.cart-item-price{font-weight:900;color:var(--red);direction:ltr;font-size:1rem}
+.cart-total{
+  background:var(--red-light);border-radius:var(--r);padding:18px;
+  display:flex;justify-content:space-between;align-items:center;margin-top:16px;
+  border:1.5px solid var(--red-mid);
+}
+.cart-total-lbl{font-weight:900;font-size:1rem;color:var(--text)}
+.cart-total-num{font-family:'Tajawal',sans-serif;font-weight:900;font-size:1.6rem;color:var(--red)}
+.cart-call{
+  width:100%;margin-top:16px;background:var(--red);color:#fff;
+  font-weight:900;font-size:1.05rem;padding:15px;border-radius:50px;
+  border:none;cursor:pointer;font-family:'Cairo',sans-serif;transition:all 0.2s;
+}
+.cart-call:hover{background:var(--red2)}
+.cart-call:active{transform:scale(0.97)}
+.cart-clear{
+  width:100%;margin-top:10px;padding:11px;background:none;
+  border:1.5px solid var(--gray2);border-radius:50px;cursor:pointer;
+  font-family:'Cairo',sans-serif;font-weight:700;color:var(--gray3);transition:all 0.18s;
+}
+.cart-clear:hover{border-color:var(--red);color:var(--red)}
+.cart-empty{text-align:center;color:var(--gray3);padding:28px 0;font-size:1rem}
+
+/* ===== FLOAT CART BUTTON ===== */
+.float-btn{
+  display:none;width:100%;background:var(--red);color:#fff;
+  font-weight:900;font-size:1rem;padding:16px 28px;
+  border-radius:50px;border:none;cursor:pointer;
+  font-family:'Cairo',sans-serif;transition:all 0.2s;
+  align-items:center;justify-content:center;gap:10px;
+  margin:24px 0;box-shadow:var(--shadow-red);
+}
+.float-btn.show{display:flex}
+.float-btn:hover{background:var(--red2)}
+.float-btn:active{transform:scale(0.97)}
+.float-badge{
+  background:#fff;color:var(--red);border-radius:50%;
+  width:24px;height:24px;font-size:0.78rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ===== TOAST ===== */
+.toast{
+  background:var(--text);color:#fff;padding:12px 24px;border-radius:50px;
+  font-weight:700;font-size:0.88rem;text-align:center;
+  max-width:340px;margin:0 auto;
+  opacity:0;transform:translateY(-10px);transition:all 0.28s;
+  pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast-wrap{padding:8px 16px;position:sticky;top:68px;z-index:99;pointer-events:none}
+
+/* ===== FOOTER ===== */
+footer{background:var(--text);color:rgba(255,255,255,0.55);padding:36px;text-align:center;font-size:0.88rem}
+footer strong{color:#fff}
+
+/* ===== ANIM ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.rev{opacity:0;transform:translateY(26px);transition:opacity 0.55s ease,transform 0.55s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:680px){
+  nav{padding:0 16px;height:60px}
+  .nav-logo{font-size:1.3rem}
+  .nav-links{display:none}
+  .sec,.add-bg,.about-bg,.contact-bg{padding:60px 16px}
+  .hero{padding:70px 16px 50px}
+  .cct-grid{grid-template-columns:1fr}
+  .tabs{width:100%}
+  .tab{flex:1;text-align:center;padding:10px 12px;font-size:0.82rem}
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast-wrap"><div class="toast" id="toast"></div></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🌯 كص <em>ادهام</em></div>
+  <ul class="nav-links">
+    <li><a href="#menu">القائمة</a></li>
+    <li><a href="#meals">الوجبات</a></li>
+    <li><a href="#about">عنّا</a></li>
+    <li><a href="#contact">تواصل</a></li>
+  </ul>
+  <button class="nav-cart-btn" onclick="toggleCart()">
+    🛒 طلباتي
+    <span class="nav-count" id="nc">0</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob b1"></div>
+  <div class="hero-blob b2"></div>
+  <div class="hero-badge">🏙️ طعم من أزقة بغداد</div>
+  <h1 class="hero-h1">كص<span class="r"> ادهام</span></h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">شاورما بنكهة بغداد الأصيلة · لحم عراقي 100%<br>نعجن ونخبز الصمون داخل المطعم يومياً 🍞</p>
+  <div class="hero-tags">
+    <div class="hero-tag">🥩 لحم عراقي أصيل</div>
+    <div class="hero-tag">🍗 دجاج طازج</div>
+    <div class="hero-tag">🧄 صوص سري</div>
+    <div class="hero-tag">🍞 صمون يومي</div>
+    <div class="hero-tag">⚡ توصيل سريع</div>
+  </div>
+  <div class="hero-btns">
+    <a href="#menu" class="btn-red">شوف القائمة 🌯</a>
+    <a href="tel:07762299922" class="btn-ghost">📞 اطلب هسه</a>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner" id="mq"></div>
+</div>
+
+<!-- CART PANEL -->
+<div class="cart-panel-wrap" id="cart-wrap">
+  <div class="cart-panel">
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+    <div class="cart-title">🛒 طلباتك</div>
+    <div class="cart-sub">اتصل بينا وراح نجهزلك كل شي ❤️</div>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total-row" style="display:none">
+      <span class="cart-total-lbl">المجموع الكلي</span>
+      <span class="cart-total-num" id="cart-total-num">0 IQD</span>
+    </div>
+    <button class="cart-call" id="cart-call-btn" onclick="window.location.href='tel:07762299922'" style="display:none">📞 اتصل الآن واطلب</button>
+    <button class="cart-clear" id="cart-clear-btn" onclick="clearCart()" style="display:none">🗑️ مسح الطلب</button>
+  </div>
+</div>
+
+<!-- FLOAT BTN -->
+<div style="max-width:480px;margin:0 auto;padding:0 20px">
+  <button class="float-btn" id="fb" onclick="toggleCart()">
+    🛒 شوف طلباتي
+    <span class="float-badge" id="fb-count">0</span>
+  </button>
+</div>
+
+<!-- MENU -->
+<div id="menu" style="background:#fff">
+<div class="sec">
+  <div class="rev">
+    <div class="sec-eye">قائمة الطعام</div>
+    <h2 class="sec-h">اختار <span class="ac">كصتك</span> 🌯</h2>
+    <p class="sec-p">كل شي طازج يومي — لحم عراقي 100% مضمون</p>
+  </div>
+
+  <div class="tabs rev">
+    <button class="tab on" onclick="switchTab(this,'lahm')">🥩 شاورما لحم</button>
+    <button class="tab" onclick="switchTab(this,'djaj')">🍗 شاورما دجاج</button>
+    <button class="tab" onclick="switchTab(this,'wazn')">⚖️ بالوزن</button>
+    <button class="tab" onclick="switchTab(this,'rizzo')">🍚 الريزو</button>
+  </div>
+
+  <!-- لحم -->
+  <div class="mcat on" id="lahm">
+    <div class="mgrid">
+      <div class="mcard" onclick="add('كص لحم حجري كبير',5000,this)">
+        <div class="mcard-ico">🫓</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص لحم حجري كبير</div>
+          <div class="mcard-desc">صمون حجري عراقي · لحم عراقي 100% · طماطة</div>
+        </div>
+        <div class="mcard-add">+ 5,000</div>
+      </div>
+      <div class="mcard" onclick="add('كص لحم فرنسي',6000,this)">
+        <div class="mcard-ico">🥖</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص لحم فرنسي</div>
+          <div class="mcard-desc">صمون بريوش فرنسي · لحم عراقي 100% · طماطة</div>
+        </div>
+        <div class="mcard-add">+ 6,000</div>
+      </div>
+      <div class="mcard" onclick="add('كص لحم حجري دبل',6000,this)">
+        <div class="mcard-ico">🍖</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص لحم حجري دبل</div>
+          <div class="mcard-desc">صمون حجري عراقي · لحم عراقي 100% · طماطة · دبل لحم</div>
+        </div>
+        <div class="mcard-add">+ 6,000</div>
+      </div>
+      <div class="mcard" onclick="add('كص لحم عربي صاج',6000,this)">
+        <div class="mcard-ico">🫔</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص لحم عربي (صاج)</div>
+          <div class="mcard-desc">خبز لبناني · لحم عراقي 100% · ديس رمان · معدونس · بصل · طحينة</div>
+        </div>
+        <div class="mcard-add">+ 6,000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- دجاج -->
+  <div class="mcat" id="djaj">
+    <div class="mgrid">
+      <div class="mcard" onclick="add('كص دجاج حجري كبير',4000,this)">
+        <div class="mcard-ico">🍗</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص دجاج حجري كبير</div>
+          <div class="mcard-desc">صمون حجري عراقي · دجاج عراقي 100% · طماطة</div>
+        </div>
+        <div class="mcard-add">+ 4,000</div>
+      </div>
+      <div class="mcard" onclick="add('كص دجاج فرنسي',4000,this)">
+        <div class="mcard-ico">🥖</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص دجاج فرنسي</div>
+          <div class="mcard-desc">صمون بريوش فرنسي · دجاج عراقي 100% · طماطة</div>
+        </div>
+        <div class="mcard-add">+ 4,000</div>
+      </div>
+      <div class="mcard" onclick="add('كص دجاج عربي صاج',5000,this)">
+        <div class="mcard-ico">🫔</div>
+        <div class="mcard-body">
+          <div class="mcard-name">كص دجاج عربي (صاج)</div>
+          <div class="mcard-desc">خبز لبناني · دجاج عراقي 100% · ديس رمان · معدونس · بصل · طحينة</div>
+        </div>
+        <div class="mcard-add">+ 5,000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- وزن -->
+  <div class="mcat" id="wazn">
+    <div class="kgrid">
+      <div class="kcard" onclick="add('كيلو شاورما لحم',60000,this)">
+        <div class="kn">كيلو شاورما لحم</div>
+        <div class="kp">60,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+      <div class="kcard" onclick="add('نصف كيلو شاورما لحم',35000,this)">
+        <div class="kn">نصف كيلو شاورما لحم</div>
+        <div class="kp">35,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+      <div class="kcard" onclick="add('كيلو شاورما دجاج',28000,this)">
+        <div class="kn">كيلو شاورما دجاج</div>
+        <div class="kp">28,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+      <div class="kcard" onclick="add('نصف كيلو شاورما دجاج',15000,this)">
+        <div class="kn">نصف كيلو شاورما دجاج</div>
+        <div class="kp">15,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+      <div class="kcard kcard-teal" onclick="add('نفر شاورما لحم',15000,this)">
+        <div class="kn">نفر شاورما لحم</div>
+        <div class="kp">15,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+      <div class="kcard kcard-teal" onclick="add('نفر شاورما دجاج',10000,this)">
+        <div class="kn">نفر شاورما دجاج</div>
+        <div class="kp">10,000</div>
+        <div class="ku">دينار عراقي</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ريزو -->
+  <div class="mcat" id="rizzo">
+    <div class="rgrid">
+      <div class="rcard" onclick="add('ريزو لحم',6000,this)">
+        <span class="rico">🍚</span>
+        <div class="rn">ريزو لحم</div>
+        <div class="rd">رز · شرائح لحم عراقي · طحينة</div>
+        <div class="rp">6,000</div>
+      </div>
+      <div class="rcard" onclick="add('ريزو دجاج',5000,this)">
+        <span class="rico">🍗</span>
+        <div class="rn">ريزو دجاج</div>
+        <div class="rd">رز · شرائح دجاج عراقي · لوصية</div>
+        <div class="rp">5,000</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- MEALS -->
+<div id="meals" style="background:var(--gray);padding:1px 0">
+<div class="sec">
+  <div class="rev">
+    <div class="sec-eye">وجبات الشاورما</div>
+    <h2 class="sec-h">للعيلة <span class="ac">والأصحاب</span> 🫂</h2>
+    <p class="sec-p">6 · 12 · 18 قطعة — مع فنكر وصوص وبيبسي</p>
+  </div>
+  <div class="mls rev">
+    <div class="mlcard">
+      <span class="ml-ico">📦</span>
+      <div class="ml-name">وجبة سنكل</div>
+      <div class="ml-info">6 قطع · صوص طحينية أو ثومية · فنكر · قوطية بيبسي</div>
+      <div class="ml-pills">
+        <button class="pill pill-red" onclick="add('وجبة سنكل لحم',7000,this)">🥩 لحم — 7,000</button>
+        <button class="pill pill-teal" onclick="add('وجبة سنكل دجاج',6000,this)">🍗 دجاج — 6,000</button>
+      </div>
+    </div>
+    <div class="mlcard">
+      <span class="ml-ico">🍱</span>
+      <div class="ml-name">وجبة دبل</div>
+      <div class="ml-info">12 قطعة · صوص طحينية أو ثومية · فنكر · قوطية بيبسي</div>
+      <div class="ml-pills">
+        <button class="pill pill-red" onclick="add('وجبة دبل لحم',13000,this)">🥩 لحم — 13,000</button>
+        <button class="pill pill-teal" onclick="add('وجبة دبل دجاج',11000,this)">🍗 دجاج — 11,000</button>
+        <button class="pill pill-dark" onclick="add('وجبة دبل ميكس',12000,this)">🔀 ميكس — 12,000</button>
+      </div>
+    </div>
+    <div class="mlcard">
+      <span class="ml-ico">🎉</span>
+      <div class="ml-name">وجبة تربل</div>
+      <div class="ml-info">18 قطعة · صوص طحينية أو ثومية · فنكر · 2 بيبسي</div>
+      <div class="ml-pills">
+        <button class="pill pill-red" onclick="add('وجبة تربل لحم',19000,this)">🥩 لحم — 19,000</button>
+        <button class="pill pill-teal" onclick="add('وجبة تربل دجاج',16000,this)">🍗 دجاج — 16,000</button>
+        <button class="pill pill-dark" onclick="add('وجبة تربل ميكس',18000,this)">🔀 ميكس — 18,000</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ADDITIONS -->
+<div class="add-bg">
+<div class="add-inner">
+  <div class="rev">
+    <div class="sec-eye">الإضافات</div>
+    <h2 class="sec-h">زيد <span class="ac">على طلبك</span> ✨</h2>
+  </div>
+  <div class="add-chips rev">
+    <div class="achip" onclick="add('حمص بالشاورما بالحم',5000,this)"><span class="ap">5,000</span> حمص بالشاورما</div>
+    <div class="achip" onclick="add('كبة 3 حبات',5000,this)"><span class="ap">5,000</span> كبة ×3</div>
+    <div class="achip" onclick="add('كبة 1',2500,this)"><span class="ap">2,500</span> كبة ×1</div>
+    <div class="achip" onclick="add('فنكر كبير',2000,this)"><span class="ap">2,000</span> فنكر كبير</div>
+    <div class="achip" onclick="add('فنكر صغير',1000,this)"><span class="ap">1,000</span> فنكر صغير</div>
+    <div class="achip" onclick="add('صوص',500,this)"><span class="ap">500</span> صوص</div>
+    <div class="achip" onclick="add('لبن',1000,this)"><span class="ap">1,000</span> لبن 🥛</div>
+    <div class="achip" onclick="add('مشروب غازي',500,this)"><span class="ap">500</span> مشروب غازي</div>
+    <div class="achip" onclick="add('مشين',1000,this)"><span class="ap">1,000</span> مشين</div>
+  </div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-bg" id="about">
+  <div class="about-in rev">
+    <div class="about-badge">عن المطعم</div>
+    <h2 class="about-h">من قلب العامرية 🏙️</h2>
+    <p class="about-p">كص ادهام — شاورما بغدادية أصيلة من العامرية بلازا. نستخدم لحم عراقي 100% ونعجن الصمون داخل المطعم كل يوم. طعم من أزقة بغداد الحلوة يوصل لبيتك.</p>
+    <div class="about-stats">
+      <div class="astat"><div class="astat-n">100%</div><div class="astat-l">لحم عراقي أصيل</div></div>
+      <div class="astat"><div class="astat-n">يومي</div><div class="astat-l">صمون طازج</div></div>
+      <div class="astat"><div class="astat-n">🏅</div><div class="astat-l">نكهة بغداد</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-bg" id="contact">
+  <div class="contact-in">
+    <div class="sec-eye rev">تواصل وياي</div>
+    <h2 class="sec-h rev">اطلب <span class="ac">هسه</span> 📞</h2>
+    <div class="cct-grid rev">
+      <a class="cct" href="tel:07762299922">
+        <div class="cct-ico">📞</div>
+        <div><div class="cct-lbl">خط 1</div><div class="cct-val">07762299922</div></div>
+      </a>
+      <a class="cct" href="tel:07862299922">
+        <div class="cct-ico">📞</div>
+        <div><div class="cct-lbl">خط 2</div><div class="cct-val">07862299922</div></div>
+      </a>
+      <div class="cct" style="grid-column:1/-1">
+        <div class="cct-ico">📍</div>
+        <div><div class="cct-lbl">الموقع</div><div class="cct-val" style="direction:rtl">العامرية بلازا — شارع العمل الشعبي، بغداد</div></div>
+      </div>
+    </div>
+    <div style="margin-top:28px">
+      <a href="tel:07762299922" class="btn-red">📞 اتصل واطلب هسه</a>
+    </div>
+    <p style="margin-top:16px;font-size:0.82rem;color:var(--gray3)">💳 بوابة الدفع الإلكتروني — قريباً</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>كص ادهام</strong> — شاورما بنكهة بغداد 🇮🇶</p>
+  <p style="margin-top:8px">العامرية بلازا · شارع العمل الشعبي · بغداد</p>
+</footer>
+
+<script>
+/* MARQUEE */
+const words=['كص لحم حجري','كص لحم فرنسي','ريزو لحم','وجبة دبل','شاورما دجاج','وجبة تربل','كص صاج','ريزو دجاج','وجبة سنكل','لحم عراقي 100%','صمون طازج','كيلو شاورما'];
+const mq=document.getElementById('mq');
+[...words,...words,...words].forEach(w=>{const s=document.createElement('span');s.textContent=w;mq.appendChild(s)});
+
+/* CART */
+let cart=[];
+
+function add(name,price,el){
+  const ex=cart.find(i=>i.name===name);
+  if(ex)ex.qty++;else cart.push({name,price,qty:1});
+  renderCart();
+  toast('✅ '+name+' — أضيف للطلب');
+  if(el){
+    el.style.transform='scale(0.94)';
+    setTimeout(()=>{el.style.transform='';},180);
+  }
+}
+
+function renderCart(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('nc').textContent=count;
+  document.getElementById('fb-count').textContent=count;
+  const fb=document.getElementById('fb');
+  fb.classList.toggle('show',count>0);
+
+  const items=document.getElementById('cart-items');
+  const totalRow=document.getElementById('cart-total-row');
+  const callBtn=document.getElementById('cart-call-btn');
+  const clearBtn=document.getElementById('cart-clear-btn');
+
+  if(cart.length===0){
+    items.innerHTML='<div class="cart-empty">🛒 القائمة فارغة — أضف شي!</div>';
+    totalRow.style.display='none';
+    callBtn.style.display='none';
+    clearBtn.style.display='none';
+  } else {
+    items.innerHTML=cart.map(i=>`
+      <div class="cart-item">
+        <div>
+          <div class="cart-item-name">${i.name}</div>
+          <div class="cart-item-qty">×${i.qty}</div>
+        </div>
+        <div class="cart-item-price">${(i.price*i.qty).toLocaleString()} IQD</div>
+      </div>`).join('');
+    document.getElementById('cart-total-num').textContent=total.toLocaleString()+' IQD';
+    totalRow.style.display='flex';
+    callBtn.style.display='block';
+    clearBtn.style.display='block';
+  }
+}
+
+function toggleCart(){
+  const w=document.getElementById('cart-wrap');
+  w.classList.toggle('open');
+  renderCart();
+  if(w.classList.contains('open'))w.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function clearCart(){
+  cart=[];
+  renderCart();
+  document.getElementById('cart-wrap').classList.remove('open');
+}
+
+/* TABS */
+function switchTab(btn,id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.mcat').forEach(c=>c.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
+}
+
+/* TOAST */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2400);
+}
+
+/* SCROLL REVEAL */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});
+},{threshold:0.08});
+document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+
+/* INIT */
+renderCart();
+</script>
+</body>
+</html>
